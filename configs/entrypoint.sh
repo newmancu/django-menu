@@ -8,7 +8,7 @@ echo "DB CONNECTED"
 
 cd ./menuapp
 python3 manage.py makemigrations
-python3 manage.py makemigrations auth menuapp
+python3 manage.py makemigrations auth menu
 python3 manage.py migrate
 # python3 manage.py collectstatic --noinput
 

@@ -57,14 +57,14 @@ class MenuModel(models.Model):
 
   @classmethod
   def get_menu(cls, name:str):
-    q = """
+    q = f"""
     with recursive parents as (
       select m1.*, 0 as root
-      from menu_menumodel m1
+      from {cls._meta.db_table} m1
       where m1.name = %s
       union
       select m2.* , p1.root + 1 as root
-      from menu_menumodel m2
+      from {cls._meta.db_table} m2
       join parents p1 on p1.id = m2.parent_id
     )
     select * from parents
