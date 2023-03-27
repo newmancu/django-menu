@@ -1,0 +1,15 @@
+{% extends "menu/wrapper.jinja" %}
+{% load draw_menu %}
+{% block title %}Index page{% endblock title %}
+
+{% block body %}
+{% draw_menu 'test_empty'  %}
+<br>
+{% draw_menu 'Test1' with_root=True %}
+<br>
+{% draw_menu 'Test1' with_root=False %}
+<br>
+{% draw_menu 'Test3' %}
+<br>
+{% draw_menu 'Test1' with_root=True %}
+{% endblock body %}

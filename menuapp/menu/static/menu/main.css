@@ -1,0 +1,58 @@
+.menu {
+  list-style-type: none;
+  box-sizing: border-box;
+  display: none;
+}
+
+.menu__caret {
+  text-decoration: none;
+}
+
+.menu__caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.menu__caret-down::before {
+  transform: rotate(90deg);
+}
+
+.menu__li {
+  display: none;
+}
+
+.menu-root {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-root > .menu__li,
+.menu-root > .menu__li > ul {
+  display: block;
+}
+
+.active {
+  display: block;
+}
+.active > .menu__li {
+  display: block;
+  max-width: 200px;
+  padding: 12px 16px;
+}
+
+/* 
+ul.menu li {
+  display: none;
+}
+
+ul.menu:hover > li,
+ul.menu li:hover > ul.menu,
+ul.menu li:hover > ul.menu li{
+  display: block;
+  padding-left: 15px;
+} */
+
+

@@ -1,0 +1,31 @@
+{% if with_root %}
+
+  <div class="menu menu-root menu__li" name="{{root.name}}">
+    <div class="menu__summary">
+    {% if root.children|length %}
+      <span class="menu__caret"></span>
+    {% endif%}
+      <a class="menu__link" href="{{root.get_url}}">{{root.title}}</a>
+    </div>
+    {% if root.children|length %}
+      <ul
+        class="menu"
+        name="{{root.name}}"
+        >
+        {%for menu in root.children %} 
+          {% include "templatetags/menu/__menu_tree.jinja" with menu=menu %}
+        {%endfor%}
+      </ul>
+    {% endif %}
+  </div>
+
+{% else %}
+  {% if root.children|length %}
+    {% for menu in root.children %}
+      <ul class="menu menu-root" name="{{menu.name}}">
+        {% include "templatetags/menu/__menu_tree.jinja" with menu=menu %}
+      </ul>
+    {% endfor %}
+  {% endif %}
+
+{% endif %}

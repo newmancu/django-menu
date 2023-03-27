@@ -1,0 +1,13 @@
+<li class="menu__li">
+  <div class="menu__summary">
+  {%if menu.children|length %}<span class="menu__caret"></span>{% endif %}
+    <a class="menu__link" href="{{menu.get_url}}">{{menu.title}}</a>
+  </div>
+  {%if menu.children|length %}
+  <ul class="menu" name="{{menu.name}}">
+    {%for ch in menu.children %}
+      {%include "templatetags/menu/__menu_tree.jinja" with menu=ch%}
+    {%endfor%}
+  </ul>
+  {%endif%}
+</li>
